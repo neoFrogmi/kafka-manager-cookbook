@@ -11,4 +11,4 @@ depends 'packagecloud'
 depends 'java'
 
 supports 'ubuntu'
-supports 'centos'
+# supports 'centos'
