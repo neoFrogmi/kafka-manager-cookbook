@@ -25,15 +25,15 @@ action :install do
 #    action :add
 #  end
 
-  remote_file 'kafka-manager_#{package_version}_all.deb' do
-    source 'https://packagecloud.io/spuder/kafka-manager/packages/ubuntu/trusty/kafka-manager_#{package_version}_all.deb/download.deb'
+  remote_file "kafka-manager_#{package_version}_all.deb" do
+    source "https://packagecloud.io/spuder/kafka-manager/packages/ubuntu/trusty/kafka-manager_#{package_version}_all.deb/download.deb"
     owner user
     group user
     mode '0755'
   end
   
   package 'kafka-manager' do
-    source 'kafka-manager_#{package_version}_all.deb'
+    source "kafka-manager_#{package_version}_all.deb"
 #    version "#{package_version}"
     action :install
   end
