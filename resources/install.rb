@@ -12,21 +12,29 @@ action :install do
   end
 
   case node['platform_family']
-  when 'rhel'
-    repo_type = 'rpm'
+#  when 'rhel'
+#    repo_type = 'rpm'
   when 'debian'
     repo_type = 'deb'
   else
-    Chef::Log.fatal("Only supports ubuntu / centos. Found: #{node['platform_family']}")
+    Chef::Log.fatal("Only supports ubuntu / debian. Found: #{node['platform_family']}")
   end
 
-  packagecloud_repo "#{repo}" do
-    type "#{repo_type}"
-    action :add
-  end
+#  packagecloud_repo "#{repo}" do
+#    type "#{repo_type}"
+#    action :add
+#  end
 
+  remote_file 'kafka-manager_#{package_version}_all.deb' do
+    source 'https://packagecloud.io/spuder/kafka-manager/packages/ubuntu/trusty/kafka-manager_#{package_version}_all.deb/download.deb'
+    owner user
+    group user
+    mode '0755'
+  end
+  
   package 'kafka-manager' do
-    version "#{package_version}"
+    source 'kafka-manager_#{package_version}_all.deb'
+#    version "#{package_version}"
     action :install
   end
 
