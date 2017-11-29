@@ -5,7 +5,7 @@ After=<%= @service_name %>.service
 [Service]
 Type=simple
 PermissionsStartOnly=true
-ExecStartPre=/bin/mkdir /run/<%= @service_name %>
+ExecStartPre=/bin/mkdir -p /run/<%= @service_name %>
 ExecStartPre=/bin/chown -R <%= @service_user %>:<%= @service_group %> /run/<%= @service_name %>/
 WorkingDirectory=/usr/share/<%= @service_name %>
 ExecStart=<%= @jar_path %>
