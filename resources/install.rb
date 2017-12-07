@@ -1,7 +1,7 @@
 resource_name :kafka_manager
 # property :repo, String, default: 'spuder/kafka-manager'
 property :package_version, String, default: '1.2.7' #1.2.8 and newer don't scale well with large clusters https://github.com/yahoo/kafka-manager/issues/162
-property :download_url, String, default: 'https://packagecloud.io/spuder/kafka-manager/packages/ubuntu/#{node['lsb']['codename']}/kafka-manager_1.2.7_all.deb/download.deb'
+property :download_url, String, default: 'https://packagecloud.io/spuder/kafka-manager/packages/ubuntu/#{node['lsb']['codename']}/kafka-manager_#{node['kafka-manager']['version']}_all.deb/download.deb'
 
 action :install do
 
