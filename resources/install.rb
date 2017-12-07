@@ -26,7 +26,7 @@ action :install do
 #  end
 
   remote_file "kafka-manager_#{package_version}_all.deb" do
-    source "https://packagecloud.io/spuder/kafka-manager/packages/ubuntu/#{node['lsb']['codename']}/kafka-manager_#{package_version}_all.deb/download.deb"
+    source "#{source_url}"
     owner user
     group user
     mode '0755'
