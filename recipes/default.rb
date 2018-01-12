@@ -19,7 +19,7 @@ end
 
 if (node['platform'] == 'ubuntu' && node['platform_version'].to_f > 16.0) || (node['platform'] == 'debian' && node['platform_version'].to_f > 9.0)
    template "systemd-service" do
-     path "/lib/systemd/system/kafka-manager.service"
+     path "/etc/systemd/system/kafka-manager.service"
      source "systemd-service.erb"
      owner "root"
      group "root"
