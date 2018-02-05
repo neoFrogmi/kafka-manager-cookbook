@@ -6,6 +6,7 @@
 
 kafka_manager 'default' do
   package_version "#{node['kafka-manager']['version']}"
+  download_url "#{node['kafka-manager']['download_url']}"
   action :install
 end
 
