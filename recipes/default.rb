@@ -29,7 +29,8 @@ if (node['platform'] == 'ubuntu' && node['platform_version'].to_f > 16.0) || (no
          :service_name => 'kafka-manager',
          :jar_path => '/usr/share/kafka-manager/bin/kafka-manager',
          :service_user => 'kafka-manager',
-         :service_group => 'kafka-manager'
+         :service_group => 'kafka-manager',
+         :java_opts      => node['kafka-manager']['java_opts']
      )
    end
  end
